@@ -4,25 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4a758115-7152-4789-beac-b6920e67bcd5" name="Changes" comment="Step1 - 사용자 요청을 메인 Thread가 처리하도록 한다.&#10;serverSocket.accept()에 의해 프로그램이 종료가 되지 않는데 응답을 하면 종료가 되는지 궁금하다.&#10;inputstream, outputstream을 활용하여 response,request정보를 출력하기 위한 준비 완료">
-      <change afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/HttpRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/HttpResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/QueryString.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/QueryStrings.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/RequestLine.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/calc/ArithmeticOperator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/calc/Calculator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/calc/newCalc/AdditionOperator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/calc/newCalc/DivisionOperator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/calc/newCalc/MultiplicationOperator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/calc/newCalc/NewArithmeticOperator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/calc/newCalc/PositiveNumber.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/calc/newCalc/SubtractionOperator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/org/example/QueryStringTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/org/example/QueryStringsTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/org/example/RequestLineTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test.http" afterDir="false" />
+    <list default="true" id="4a758115-7152-4789-beac-b6920e67bcd5" name="Changes" comment="Step1 - 사용자 요청을 메인 Thread가 처리하도록 한다.&#10;- ServerSocker accpet메소드의 경우 강제 종료하기 전까지 listen 상태가 지속되어 프로그램이 종료되지 않고 계속 대기 상태에 들어가 연결을 시도 한다&#10;- RequestLine 문자열을 split 하여 원하는 요청 메소드, url, query string일 경우 사칙연산을 수행한다.">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/ClientRequestHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/CustomWebApplicationServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/CustomWebApplicationServer.java" afterDir="false" />
     </list>
@@ -57,25 +40,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "last_opened_file_path": "/Users/jyuka/workspace/was-calculator-pratice/src/main/java/org/example",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "project.structure.last.edited": "SDKs",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "reference.settingsdialog.project.gradle",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/jyuka/workspace/was-calculator-pratice/src/main/java/org/example&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;SDKs&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.project.gradle&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/java/org/example" />
@@ -87,7 +70,7 @@
       <recent name="org.example" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="HTTP Request.test | #1">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.example.Main" />
       <module name="was-calculator-pratice.main" />
@@ -137,10 +120,10 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="HTTP Request.test | #1" />
         <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.QueryStringsTest.test" />
         <item itemvalue="JUnit.RequestLineTest" />
-        <item itemvalue="HTTP Request.test | #1" />
       </list>
     </recent_temporary>
   </component>
@@ -153,7 +136,8 @@
       <option name="presentableId" value="Default" />
       <updated>1676293347636</updated>
       <workItem from="1676293349156" duration="784000" />
-      <workItem from="1676375809919" duration="7044000" />
+      <workItem from="1676375809919" duration="7648000" />
+      <workItem from="1676464121985" duration="877000" />
     </task>
     <task id="LOCAL-00001" summary="Init">
       <created>1676293394419</created>
@@ -169,16 +153,43 @@
       <option name="project" value="LOCAL" />
       <updated>1676377888010</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Step1 - 사용자 요청을 메인 Thread가 처리하도록 한다.&#10;이전 실습에서 진행한 계산기 코드 복붙">
+      <created>1676385879283</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1676385879283</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Step1 - 사용자 요청을 메인 Thread가 처리하도록 한다.&#10;- ServerSocker accpet메소드의 경우 강제 종료하기 전까지 listen 상태가 지속되어 프로그램이 종료되지 않고 계속 대기 상태에 들어가 연결을 시도 한다&#10;- RequestLine 문자열을 split 하여 원하는 요청 메소드, url, query string일 경우 사칙연산을 수행한다.">
+      <created>1676386043603</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1676386043603</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Init" />
     <MESSAGE value="Step1 - 사용자 요청을 메인 Thread가 처리하도록 한다.&#10;serverSocket.accept()에 의해 프로그램이 종료가 되지 않는데 응답을 하면 종료가 되는지 궁금하다.&#10;inputstream, outputstream을 활용하여 response,request정보를 출력하기 위한 준비 완료" />
-    <option name="LAST_COMMIT_MESSAGE" value="Step1 - 사용자 요청을 메인 Thread가 처리하도록 한다.&#10;serverSocket.accept()에 의해 프로그램이 종료가 되지 않는데 응답을 하면 종료가 되는지 궁금하다.&#10;inputstream, outputstream을 활용하여 response,request정보를 출력하기 위한 준비 완료" />
+    <MESSAGE value="Step1 - 사용자 요청을 메인 Thread가 처리하도록 한다.&#10;이전 실습에서 진행한 계산기 코드 복붙" />
+    <MESSAGE value="Step1 - 사용자 요청을 메인 Thread가 처리하도록 한다.&#10;- ServerSocker accpet메소드의 경우 강제 종료하기 전까지 listen 상태가 지속되어 프로그램이 종료되지 않고 계속 대기 상태에 들어가 연결을 시도 한다&#10;- RequestLine 문자열을 split 하여 원하는 요청 메소드, url, query string일 경우 사칙연산을 수행한다." />
+    <option name="LAST_COMMIT_MESSAGE" value="Step1 - 사용자 요청을 메인 Thread가 처리하도록 한다.&#10;- ServerSocker accpet메소드의 경우 강제 종료하기 전까지 listen 상태가 지속되어 프로그램이 종료되지 않고 계속 대기 상태에 들어가 연결을 시도 한다&#10;- RequestLine 문자열을 split 하여 원하는 요청 메소드, url, query string일 경우 사칙연산을 수행한다." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
