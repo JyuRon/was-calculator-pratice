@@ -1,4 +1,4 @@
-package org.example;
+package org.example.socket;
 
 import org.example.calc.Calculator;
 import org.example.calc.newCalc.PositiveNumber;

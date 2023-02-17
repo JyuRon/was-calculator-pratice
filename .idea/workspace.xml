@@ -4,10 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4a758115-7152-4789-beac-b6920e67bcd5" name="Changes" comment="Step1 - 사용자 요청을 메인 Thread가 처리하도록 한다.&#10;- ServerSocker accpet메소드의 경우 강제 종료하기 전까지 listen 상태가 지속되어 프로그램이 종료되지 않고 계속 대기 상태에 들어가 연결을 시도 한다&#10;- RequestLine 문자열을 split 하여 원하는 요청 메소드, url, query string일 경우 사칙연산을 수행한다.">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/ClientRequestHandler.java" afterDir="false" />
+    <list default="true" id="ee9c8e7f-d114-4634-9006-d66b8ed7bed5" name="Changes" comment="Servlet Container 개념 학습&#10;- ServletContainer는 singletone으로 구성되었으며 singletone의 경우 상태를 유지(int count)를 유지해서는 안됨 -&gt; thread safe 하지 않음&#10;- 서블릿 컨테이너는 웹 서버와 소켓을 만들고 통신하는 과정을 대신 처리해준다. 개발&#10;  자는 비즈니스 로직에만 집중하면 된다.&#10;- Spring의 bean 또한 싱글톤으로 참고">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/servlet/WebApplicationServer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/CustomWebApplicationServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/CustomWebApplicationServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/ClientRequestHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/socket/ClientRequestHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/CustomWebApplicationServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/socket/CustomWebApplicationServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/HttpRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/socket/HttpRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/HttpResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/socket/HttpResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/socket/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/QueryString.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/socket/QueryString.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/QueryStrings.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/socket/QueryStrings.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/RequestLine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/socket/RequestLine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/QueryStringTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/QueryStringTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/QueryStringsTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/QueryStringsTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/RequestLineTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/RequestLineTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,14 +31,22 @@
       <ProjectState />
     </projectState>
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="HTTP Request" />
-        <option value="JUnit5 Test Class" />
-        <option value="Class" />
-      </list>
-    </option>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="was-calculator-pratice" type="f1a62948:ProjectNode" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -34,49 +54,44 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectId" id="2LgWk3rIhNRtNjbK9bHYlJFPP5j" />
+  <component name="ProjectId" id="2LrKp43oTXmMQtdzfLC4qhnM3ZC" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/jyuka/workspace/was-calculator-pratice/src/main/java/org/example&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;SDKs&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.project.gradle&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "/Users/jyuka/workspace/was-calculator-pratice/src/main/java/org/example/singletone",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "reference.settingsdialog.project.gradle",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/main/java/org/example" />
+      <recent name="$PROJECT_DIR$/src/main/java/org/example/singletone" />
     </key>
-    <key name="CreateTestDialog.Recents.Supers">
-      <recent name="" />
-    </key>
-    <key name="CreateTestDialog.RecentsKey">
-      <recent name="org.example" />
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="org.example.servlet" />
     </key>
   </component>
-  <component name="RunManager" selected="HTTP Request.test | #1">
+  <component name="RunManager" selected="Application.WebApplicationServer">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="org.example.Main" />
+      <option name="MAIN_CLASS_NAME" value="org.example.socket.Main" />
       <module name="was-calculator-pratice.main" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="org.example.*" />
+          <option name="PATTERN" value="org.example.socket.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -84,90 +99,67 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="test | #1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/test.http" requestIdentifier="#1" runType="Run single request">
-      <method v="2" />
-    </configuration>
-    <configuration name="QueryStringsTest.test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="was-calculator-pratice.test" />
+    <configuration name="RaceConditionDemo" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.example.singletone.RaceConditionDemo" />
+      <module name="was-calculator-pratice.main" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="org.example.*" />
+          <option name="PATTERN" value="org.example.singletone.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="org.example" />
-      <option name="MAIN_CLASS_NAME" value="org.example.QueryStringsTest" />
-      <option name="METHOD_NAME" value="test" />
-      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RequestLineTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="was-calculator-pratice.test" />
+    <configuration name="WebApplicationServer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.example.servlet.WebApplicationServer" />
+      <module name="was-calculator-pratice.main" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="org.example.*" />
+          <option name="PATTERN" value="org.example.servlet.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="org.example" />
-      <option name="MAIN_CLASS_NAME" value="org.example.RequestLineTest" />
-      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="HTTP Request.test | #1" />
+        <item itemvalue="Application.WebApplicationServer" />
+        <item itemvalue="Application.RaceConditionDemo" />
         <item itemvalue="Application.Main" />
-        <item itemvalue="JUnit.QueryStringsTest.test" />
-        <item itemvalue="JUnit.RequestLineTest" />
       </list>
     </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
-    <task active="true" id="Default" summary="Default task">
-      <changelist id="4a758115-7152-4789-beac-b6920e67bcd5" name="Changes" comment="" />
-      <created>1676293347636</created>
-      <option name="number" value="Default" />
-      <option name="presentableId" value="Default" />
-      <updated>1676293347636</updated>
-      <workItem from="1676293349156" duration="784000" />
-      <workItem from="1676375809919" duration="7648000" />
-      <workItem from="1676464121985" duration="877000" />
-    </task>
-    <task id="LOCAL-00001" summary="Init">
-      <created>1676293394419</created>
+    <task id="LOCAL-00001" summary="Step3 - Thread Pool을 적용해 안정적인 서비스가 가능하도록 한다..">
+      <created>1676465873536</created>
       <option name="number" value="00001" />
       <option name="presentableId" value="LOCAL-00001" />
       <option name="project" value="LOCAL" />
-      <updated>1676293394419</updated>
+      <updated>1676465873536</updated>
     </task>
-    <task id="LOCAL-00002" summary="Step1 - 사용자 요청을 메인 Thread가 처리하도록 한다.&#10;serverSocket.accept()에 의해 프로그램이 종료가 되지 않는데 응답을 하면 종료가 되는지 궁금하다.&#10;inputstream, outputstream을 활용하여 response,request정보를 출력하기 위한 준비 완료">
-      <created>1676377888010</created>
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="ee9c8e7f-d114-4634-9006-d66b8ed7bed5" name="Changes" comment="Step3 - Thread Pool을 적용해 안정적인 서비스가 가능하도록 한다.." />
+      <created>1676623940958</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1676623940958</updated>
+      <workItem from="1676623942993" duration="97000" />
+      <workItem from="1676625246337" duration="973000" />
+      <workItem from="1676626229102" duration="3407000" />
+    </task>
+    <task id="LOCAL-00002" summary="Servlet Container 개념 학습&#10;- ServletContainer는 singletone으로 구성되었으며 singletone의 경우 상태를 유지(int count)를 유지해서는 안됨 -&gt; thread safe 하지 않음&#10;- 서블릿 컨테이너는 웹 서버와 소켓을 만들고 통신하는 과정을 대신 처리해준다. 개발&#10;  자는 비즈니스 로직에만 집중하면 된다.&#10;- Spring의 bean 또한 싱글톤으로 참고">
+      <created>1676625669436</created>
       <option name="number" value="00002" />
       <option name="presentableId" value="LOCAL-00002" />
       <option name="project" value="LOCAL" />
-      <updated>1676377888010</updated>
+      <updated>1676625669436</updated>
     </task>
-    <task id="LOCAL-00003" summary="Step1 - 사용자 요청을 메인 Thread가 처리하도록 한다.&#10;이전 실습에서 진행한 계산기 코드 복붙">
-      <created>1676385879283</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1676385879283</updated>
-    </task>
-    <task id="LOCAL-00004" summary="Step1 - 사용자 요청을 메인 Thread가 처리하도록 한다.&#10;- ServerSocker accpet메소드의 경우 강제 종료하기 전까지 listen 상태가 지속되어 프로그램이 종료되지 않고 계속 대기 상태에 들어가 연결을 시도 한다&#10;- RequestLine 문자열을 split 하여 원하는 요청 메소드, url, query string일 경우 사칙연산을 수행한다.">
-      <created>1676386043603</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1676386043603</updated>
-    </task>
-    <option name="localTasksCounter" value="5" />
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -185,14 +177,8 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Init" />
-    <MESSAGE value="Step1 - 사용자 요청을 메인 Thread가 처리하도록 한다.&#10;serverSocket.accept()에 의해 프로그램이 종료가 되지 않는데 응답을 하면 종료가 되는지 궁금하다.&#10;inputstream, outputstream을 활용하여 response,request정보를 출력하기 위한 준비 완료" />
-    <MESSAGE value="Step1 - 사용자 요청을 메인 Thread가 처리하도록 한다.&#10;이전 실습에서 진행한 계산기 코드 복붙" />
-    <MESSAGE value="Step1 - 사용자 요청을 메인 Thread가 처리하도록 한다.&#10;- ServerSocker accpet메소드의 경우 강제 종료하기 전까지 listen 상태가 지속되어 프로그램이 종료되지 않고 계속 대기 상태에 들어가 연결을 시도 한다&#10;- RequestLine 문자열을 split 하여 원하는 요청 메소드, url, query string일 경우 사칙연산을 수행한다." />
-    <option name="LAST_COMMIT_MESSAGE" value="Step1 - 사용자 요청을 메인 Thread가 처리하도록 한다.&#10;- ServerSocker accpet메소드의 경우 강제 종료하기 전까지 listen 상태가 지속되어 프로그램이 종료되지 않고 계속 대기 상태에 들어가 연결을 시도 한다&#10;- RequestLine 문자열을 split 하여 원하는 요청 메소드, url, query string일 경우 사칙연산을 수행한다." />
-  </component>
-  <component name="XSLT-Support.FileAssociations.UIState">
-    <expand />
-    <select />
+    <MESSAGE value="Step3 - Thread Pool을 적용해 안정적인 서비스가 가능하도록 한다.." />
+    <MESSAGE value="Servlet Container 개념 학습&#10;- ServletContainer는 singletone으로 구성되었으며 singletone의 경우 상태를 유지(int count)를 유지해서는 안됨 -&gt; thread safe 하지 않음&#10;- 서블릿 컨테이너는 웹 서버와 소켓을 만들고 통신하는 과정을 대신 처리해준다. 개발&#10;  자는 비즈니스 로직에만 집중하면 된다.&#10;- Spring의 bean 또한 싱글톤으로 참고" />
+    <option name="LAST_COMMIT_MESSAGE" value="Servlet Container 개념 학습&#10;- ServletContainer는 singletone으로 구성되었으며 singletone의 경우 상태를 유지(int count)를 유지해서는 안됨 -&gt; thread safe 하지 않음&#10;- 서블릿 컨테이너는 웹 서버와 소켓을 만들고 통신하는 과정을 대신 처리해준다. 개발&#10;  자는 비즈니스 로직에만 집중하면 된다.&#10;- Spring의 bean 또한 싱글톤으로 참고" />
   </component>
 </project>

@@ -1,4 +1,4 @@
-package org.example;
+package org.example.socket;
 
 public class QueryString {
     private final String key;
