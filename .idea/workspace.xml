@@ -4,22 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ee9c8e7f-d114-4634-9006-d66b8ed7bed5" name="Changes" comment="Servlet Container 개념 학습&#10;- ServletContainer는 singletone으로 구성되었으며 singletone의 경우 상태를 유지(int count)를 유지해서는 안됨 -&gt; thread safe 하지 않음&#10;- 서블릿 컨테이너는 웹 서버와 소켓을 만들고 통신하는 과정을 대신 처리해준다. 개발&#10;  자는 비즈니스 로직에만 집중하면 된다.&#10;- Spring의 bean 또한 싱글톤으로 참고">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/servlet/WebApplicationServer.java" afterDir="false" />
+    <list default="true" id="ee9c8e7f-d114-4634-9006-d66b8ed7bed5" name="Changes" comment="URL 인코딩 (= 퍼센트 인코딩)&#10;• URL로 사용할 수 없는 문자(예약어, Non-ASCII 문자(한글) 등)를 사용할 수 있도록&#10;인코딩하는 것&#10;• 인코딩 된 문자는 triplet(세 개가 한 세트)로 인코딩 되며 각각을 % 다음에 두 개의&#10;16진수로 표현함&#10;• 예약 문자&#10;• https://ko.wikipedia.org/wiki/&#10;%ED%8D%BC%EC%84%BC%ED%8A%B8_%EC%9D%B8%EC%BD%9">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/jdbc/ConnectionManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/jdbc/JdbcTemplate.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/jdbc/PreparedStatementSetter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/jdbc/RowMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/jdbc/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/jdbc/UserDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/org/example/jdbc/UserDaoTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/db_schema.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/ClientRequestHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/socket/ClientRequestHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/CustomWebApplicationServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/socket/CustomWebApplicationServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/HttpRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/socket/HttpRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/HttpResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/socket/HttpResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/socket/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/QueryString.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/socket/QueryString.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/QueryStrings.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/socket/QueryStrings.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/RequestLine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/socket/RequestLine.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/QueryStringTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/QueryStringTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/QueryStringsTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/QueryStringsTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/RequestLineTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/RequestLineTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test.http" beforeDir="false" afterPath="$PROJECT_DIR$/test.http" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,6 +44,16 @@
       </state>
     </system>
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTTP Request" />
+        <option value="JUnit5 Test Class" />
+        <option value="Class" />
+        <option value="Interface" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -66,6 +72,8 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
     "last_opened_file_path": "/Users/jyuka/workspace/was-calculator-pratice/src/main/java/org/example/singletone",
     "node.js.detected.package.eslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -78,40 +86,26 @@
   }
 }]]></component>
   <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="org.example.jdbc" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/java/org/example/singletone" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/test/resources" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="org.example.jdbc" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="org.example.servlet" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.WebApplicationServer">
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="org.example.socket.Main" />
-      <module name="was-calculator-pratice.main" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="org.example.socket.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="RaceConditionDemo" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="org.example.singletone.RaceConditionDemo" />
-      <module name="was-calculator-pratice.main" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="org.example.singletone.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="JUnit.UserDaoTest.createTest">
     <configuration name="WebApplicationServer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.example.servlet.WebApplicationServer" />
       <module name="was-calculator-pratice.main" />
@@ -125,11 +119,38 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="test | URL 인코딩 실패 예제" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/test.http" index="2" requestIdentifier="URL 인코딩 실패 예제" runType="Run single request">
+      <method v="2" />
+    </configuration>
+    <configuration name="test | #1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/test.http" requestIdentifier="#1" runType="Run single request">
+      <method v="2" />
+    </configuration>
+    <configuration name="test | #3" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/test.http" index="3" requestIdentifier="#3" runType="Run single request">
+      <method v="2" />
+    </configuration>
+    <configuration name="UserDaoTest.createTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="was-calculator-pratice.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.example.jdbc.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.example.jdbc" />
+      <option name="MAIN_CLASS_NAME" value="org.example.jdbc.UserDaoTest" />
+      <option name="METHOD_NAME" value="createTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.UserDaoTest.createTest" />
+        <item itemvalue="HTTP Request.test | #3" />
+        <item itemvalue="HTTP Request.test | URL 인코딩 실패 예제" />
+        <item itemvalue="HTTP Request.test | #1" />
         <item itemvalue="Application.WebApplicationServer" />
-        <item itemvalue="Application.RaceConditionDemo" />
-        <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
   </component>
@@ -150,7 +171,9 @@
       <updated>1676623940958</updated>
       <workItem from="1676623942993" duration="97000" />
       <workItem from="1676625246337" duration="973000" />
-      <workItem from="1676626229102" duration="3407000" />
+      <workItem from="1676626229102" duration="7639000" />
+      <workItem from="1676693199981" duration="25000" />
+      <workItem from="1676800554848" duration="5242000" />
     </task>
     <task id="LOCAL-00002" summary="Servlet Container 개념 학습&#10;- ServletContainer는 singletone으로 구성되었으며 singletone의 경우 상태를 유지(int count)를 유지해서는 안됨 -&gt; thread safe 하지 않음&#10;- 서블릿 컨테이너는 웹 서버와 소켓을 만들고 통신하는 과정을 대신 처리해준다. 개발&#10;  자는 비즈니스 로직에만 집중하면 된다.&#10;- Spring의 bean 또한 싱글톤으로 참고">
       <created>1676625669436</created>
@@ -159,7 +182,28 @@
       <option name="project" value="LOCAL" />
       <updated>1676625669436</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="내장톰캣 추가">
+      <created>1676630687254</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1676630687254</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Servlet, GenericServlet, HttpServlet 실습">
+      <created>1676634487062</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1676634487062</updated>
+    </task>
+    <task id="LOCAL-00005" summary="URL 인코딩 (= 퍼센트 인코딩)&#10;• URL로 사용할 수 없는 문자(예약어, Non-ASCII 문자(한글) 등)를 사용할 수 있도록&#10;인코딩하는 것&#10;• 인코딩 된 문자는 triplet(세 개가 한 세트)로 인코딩 되며 각각을 % 다음에 두 개의&#10;16진수로 표현함&#10;• 예약 문자&#10;• https://ko.wikipedia.org/wiki/&#10;%ED%8D%BC%EC%84%BC%ED%8A%B8_%EC%9D%B8%EC%BD%9">
+      <created>1676635009033</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1676635009033</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -179,6 +223,9 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Step3 - Thread Pool을 적용해 안정적인 서비스가 가능하도록 한다.." />
     <MESSAGE value="Servlet Container 개념 학습&#10;- ServletContainer는 singletone으로 구성되었으며 singletone의 경우 상태를 유지(int count)를 유지해서는 안됨 -&gt; thread safe 하지 않음&#10;- 서블릿 컨테이너는 웹 서버와 소켓을 만들고 통신하는 과정을 대신 처리해준다. 개발&#10;  자는 비즈니스 로직에만 집중하면 된다.&#10;- Spring의 bean 또한 싱글톤으로 참고" />
-    <option name="LAST_COMMIT_MESSAGE" value="Servlet Container 개념 학습&#10;- ServletContainer는 singletone으로 구성되었으며 singletone의 경우 상태를 유지(int count)를 유지해서는 안됨 -&gt; thread safe 하지 않음&#10;- 서블릿 컨테이너는 웹 서버와 소켓을 만들고 통신하는 과정을 대신 처리해준다. 개발&#10;  자는 비즈니스 로직에만 집중하면 된다.&#10;- Spring의 bean 또한 싱글톤으로 참고" />
+    <MESSAGE value="내장톰캣 추가" />
+    <MESSAGE value="Servlet, GenericServlet, HttpServlet 실습" />
+    <MESSAGE value="URL 인코딩 (= 퍼센트 인코딩)&#10;• URL로 사용할 수 없는 문자(예약어, Non-ASCII 문자(한글) 등)를 사용할 수 있도록&#10;인코딩하는 것&#10;• 인코딩 된 문자는 triplet(세 개가 한 세트)로 인코딩 되며 각각을 % 다음에 두 개의&#10;16진수로 표현함&#10;• 예약 문자&#10;• https://ko.wikipedia.org/wiki/&#10;%ED%8D%BC%EC%84%BC%ED%8A%B8_%EC%9D%B8%EC%BD%9" />
+    <option name="LAST_COMMIT_MESSAGE" value="URL 인코딩 (= 퍼센트 인코딩)&#10;• URL로 사용할 수 없는 문자(예약어, Non-ASCII 문자(한글) 등)를 사용할 수 있도록&#10;인코딩하는 것&#10;• 인코딩 된 문자는 triplet(세 개가 한 세트)로 인코딩 되며 각각을 % 다음에 두 개의&#10;16진수로 표현함&#10;• 예약 문자&#10;• https://ko.wikipedia.org/wiki/&#10;%ED%8D%BC%EC%84%BC%ED%8A%B8_%EC%9D%B8%EC%BD%9" />
   </component>
 </project>
