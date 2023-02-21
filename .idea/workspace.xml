@@ -4,18 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ee9c8e7f-d114-4634-9006-d66b8ed7bed5" name="Changes" comment="URL 인코딩 (= 퍼센트 인코딩)&#10;• URL로 사용할 수 없는 문자(예약어, Non-ASCII 문자(한글) 등)를 사용할 수 있도록&#10;인코딩하는 것&#10;• 인코딩 된 문자는 triplet(세 개가 한 세트)로 인코딩 되며 각각을 % 다음에 두 개의&#10;16진수로 표현함&#10;• 예약 문자&#10;• https://ko.wikipedia.org/wiki/&#10;%ED%8D%BC%EC%84%BC%ED%8A%B8_%EC%9D%B8%EC%BD%9">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/jdbc/ConnectionManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/jdbc/JdbcTemplate.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/jdbc/PreparedStatementSetter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/jdbc/RowMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/jdbc/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/jdbc/UserDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/org/example/jdbc/UserDaoTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/resources/db_schema.sql" afterDir="false" />
+    <list default="true" id="ee9c8e7f-d114-4634-9006-d66b8ed7bed5" name="Changes" comment="JDBC : HikariCP의 DataSource 사용&#10;- 커넥션의 사용 주체는 WAS 스레드이므로 커넥션 개수는 WAS 스레드 수와 함께 고&#10;려해야 함&#10;- 커넥션 수 ↑ ,메모리 소모가 ↑, 동시 접속자 수가 많아지더라도 사용자 대기 시간이 ↓&#10;- 커넥션 수 ↓ ,메모리 소모가 ↓, 동시 접속자 수가 많아지더라도 사용자 대기 시간이 ↑">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/reflection/annotation/Controller.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/reflection/annotation/RequestMapping.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/reflection/annotation/Service.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/reflection/controller/HealthCheckController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/reflection/controller/HomeController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/reflection/controller/HomeService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/reflection/controller/RequestMethod.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/reflection/model/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Reflection 정리.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/org/example/reflection/ReflectionTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test.http" beforeDir="false" afterPath="$PROJECT_DIR$/test.http" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,8 +50,8 @@
       <list>
         <option value="HTTP Request" />
         <option value="JUnit5 Test Class" />
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -66,30 +67,32 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "last_opened_file_path": "/Users/jyuka/workspace/was-calculator-pratice/src/main/java/org/example/singletone",
-    "node.js.detected.package.eslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "reference.settingsdialog.project.gradle",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/jyuka/workspace/was-calculator-pratice/src/main/java/org/example/reflection&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.project.gradle&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;c0c36e65895e3229901dfad72b4fef3f&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="org.example.jdbc" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/java/org/example/reflection" />
       <recent name="$PROJECT_DIR$/src/main/java/org/example/singletone" />
     </key>
     <key name="CreateTestDialog.Recents.Supers">
@@ -102,31 +105,61 @@
       <recent name="org.example.jdbc" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="org.example.reflection" />
       <recent name="org.example.servlet" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.UserDaoTest.createTest">
-    <configuration name="WebApplicationServer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="org.example.servlet.WebApplicationServer" />
-      <module name="was-calculator-pratice.main" />
+  <component name="RunManager" selected="JUnit.ReflectionTest.controllerScan">
+    <configuration name="test | #3" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/test.http" index="3" requestIdentifier="#3" runType="Run single request">
+      <method v="2" />
+    </configuration>
+    <configuration name="ReflectionTest.controllerScan" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="was-calculator-pratice.test" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="org.example.servlet.*" />
+          <option name="PATTERN" value="org.example.reflection.annotation.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <option name="PACKAGE_NAME" value="org.example.reflection" />
+      <option name="MAIN_CLASS_NAME" value="org.example.reflection.ReflectionTest" />
+      <option name="METHOD_NAME" value="controllerScan" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="test | URL 인코딩 실패 예제" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/test.http" index="2" requestIdentifier="URL 인코딩 실패 예제" runType="Run single request">
-      <method v="2" />
+    <configuration name="ReflectionTest.load" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="was-calculator-pratice.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.example.reflection.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.example.reflection" />
+      <option name="MAIN_CLASS_NAME" value="org.example.reflection.ReflectionTest" />
+      <option name="METHOD_NAME" value="load" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
-    <configuration name="test | #1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/test.http" requestIdentifier="#1" runType="Run single request">
-      <method v="2" />
-    </configuration>
-    <configuration name="test | #3" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/test.http" index="3" requestIdentifier="#3" runType="Run single request">
-      <method v="2" />
+    <configuration name="ReflectionTest.showClass" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="was-calculator-pratice.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.example.reflection.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.example.reflection" />
+      <option name="MAIN_CLASS_NAME" value="org.example.reflection.ReflectionTest" />
+      <option name="METHOD_NAME" value="showClass" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
     <configuration name="UserDaoTest.createTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="was-calculator-pratice.test" />
@@ -146,11 +179,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.ReflectionTest.controllerScan" />
+        <item itemvalue="JUnit.ReflectionTest.load" />
+        <item itemvalue="JUnit.ReflectionTest.showClass" />
         <item itemvalue="JUnit.UserDaoTest.createTest" />
         <item itemvalue="HTTP Request.test | #3" />
-        <item itemvalue="HTTP Request.test | URL 인코딩 실패 예제" />
-        <item itemvalue="HTTP Request.test | #1" />
-        <item itemvalue="Application.WebApplicationServer" />
       </list>
     </recent_temporary>
   </component>
@@ -173,7 +206,10 @@
       <workItem from="1676625246337" duration="973000" />
       <workItem from="1676626229102" duration="7639000" />
       <workItem from="1676693199981" duration="25000" />
-      <workItem from="1676800554848" duration="5242000" />
+      <workItem from="1676800554848" duration="5614000" />
+      <workItem from="1676894591568" duration="132000" />
+      <workItem from="1676894752110" duration="2311000" />
+      <workItem from="1676901711374" duration="5054000" />
     </task>
     <task id="LOCAL-00002" summary="Servlet Container 개념 학습&#10;- ServletContainer는 singletone으로 구성되었으며 singletone의 경우 상태를 유지(int count)를 유지해서는 안됨 -&gt; thread safe 하지 않음&#10;- 서블릿 컨테이너는 웹 서버와 소켓을 만들고 통신하는 과정을 대신 처리해준다. 개발&#10;  자는 비즈니스 로직에만 집중하면 된다.&#10;- Spring의 bean 또한 싱글톤으로 참고">
       <created>1676625669436</created>
@@ -203,7 +239,14 @@
       <option name="project" value="LOCAL" />
       <updated>1676635009033</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="JDBC : HikariCP의 DataSource 사용&#10;- 커넥션의 사용 주체는 WAS 스레드이므로 커넥션 개수는 WAS 스레드 수와 함께 고&#10;려해야 함&#10;- 커넥션 수 ↑ ,메모리 소모가 ↑, 동시 접속자 수가 많아지더라도 사용자 대기 시간이 ↓&#10;- 커넥션 수 ↓ ,메모리 소모가 ↓, 동시 접속자 수가 많아지더라도 사용자 대기 시간이 ↑">
+      <created>1676806167338</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1676806167338</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -226,6 +269,7 @@
     <MESSAGE value="내장톰캣 추가" />
     <MESSAGE value="Servlet, GenericServlet, HttpServlet 실습" />
     <MESSAGE value="URL 인코딩 (= 퍼센트 인코딩)&#10;• URL로 사용할 수 없는 문자(예약어, Non-ASCII 문자(한글) 등)를 사용할 수 있도록&#10;인코딩하는 것&#10;• 인코딩 된 문자는 triplet(세 개가 한 세트)로 인코딩 되며 각각을 % 다음에 두 개의&#10;16진수로 표현함&#10;• 예약 문자&#10;• https://ko.wikipedia.org/wiki/&#10;%ED%8D%BC%EC%84%BC%ED%8A%B8_%EC%9D%B8%EC%BD%9" />
-    <option name="LAST_COMMIT_MESSAGE" value="URL 인코딩 (= 퍼센트 인코딩)&#10;• URL로 사용할 수 없는 문자(예약어, Non-ASCII 문자(한글) 등)를 사용할 수 있도록&#10;인코딩하는 것&#10;• 인코딩 된 문자는 triplet(세 개가 한 세트)로 인코딩 되며 각각을 % 다음에 두 개의&#10;16진수로 표현함&#10;• 예약 문자&#10;• https://ko.wikipedia.org/wiki/&#10;%ED%8D%BC%EC%84%BC%ED%8A%B8_%EC%9D%B8%EC%BD%9" />
+    <MESSAGE value="JDBC : HikariCP의 DataSource 사용&#10;- 커넥션의 사용 주체는 WAS 스레드이므로 커넥션 개수는 WAS 스레드 수와 함께 고&#10;려해야 함&#10;- 커넥션 수 ↑ ,메모리 소모가 ↑, 동시 접속자 수가 많아지더라도 사용자 대기 시간이 ↓&#10;- 커넥션 수 ↓ ,메모리 소모가 ↓, 동시 접속자 수가 많아지더라도 사용자 대기 시간이 ↑" />
+    <option name="LAST_COMMIT_MESSAGE" value="JDBC : HikariCP의 DataSource 사용&#10;- 커넥션의 사용 주체는 WAS 스레드이므로 커넥션 개수는 WAS 스레드 수와 함께 고&#10;려해야 함&#10;- 커넥션 수 ↑ ,메모리 소모가 ↑, 동시 접속자 수가 많아지더라도 사용자 대기 시간이 ↓&#10;- 커넥션 수 ↓ ,메모리 소모가 ↓, 동시 접속자 수가 많아지더라도 사용자 대기 시간이 ↑" />
   </component>
 </project>

@@ -1,0 +1,78 @@
+참고 url
+https://tecoble.techcourse.co.kr/post/2020-07-16-reflection-api/
+https://jeong-pro.tistory.com/234
+
+** Reflection API란?
+- 힙 영역에 로드돼 있는 클래스 타입의 객체를 통해 필드/메소드/생성자를 접근 제어자와 상관 없이 사용할 수 있도록 지원하는 API
+- 컴파일 시점이 아닌 런타임 시점에 동적으로 특정 클래스의 정보를 추출해낼 수 있는 프로그래밍 기법
+- 주로 프레임워크 또는 라이브러리 개발 시 사용됨
+
+- 상황 1 : move 메소드를 참조할 수 없어 에러가 발생
+public static void main(String[] args) {
+    Object obj = new Car("foo", 0);
+    obj.move();    // 컴파일 에러 발생 java: cannot find symbol
+}
+
+- 상황 1에 대한 대처 : Reflection API
+public static void main(String[] args) throws Exception {
+    Object obj = new Car("foo", 0);
+    Class carClass = Car.class;
+    Method move = carClass.getMethod("move");
+
+    // move 메서드 실행, invoke(메서드를 실행시킬 객체, 해당 메서드에 넘길 인자)
+    move.invoke(obj, null);
+
+    Method getPosition = carClass.getMethod("getPosition");
+    int position = (int)getPosition.invoke(obj, null);
+    System.out.println(position);
+    // 출력 결과: 1
+}
+
+- 활용처
+    1) 인텔리제이 자동완성 : 인텔리제이 자체가 java로 돌아가 라이브러리(jar)에 존재하는 클래스파일의 메소드 등을 바로 보여줌
+    2) Jackson 라이브러리, Hibernate등의 프레임 워크나 라이브러리
+    3) Spring Container Bean Factory
+        Bean은 애플리케이션이 실행한 후 런타임에 객체가 호출될 때 동적으로 객체의 인스턴스를 생성하는데
+        이때 Spring Container의 BeanFactory에서 리플렉션을 사용한다.
+    4) Spring Data JPA
+        Entity에 기본 생성자가 필요한 이유도 동적으로 객체 생성 시 Reflection API를 활용하기 때문이다.
+        Reflection API로 가져올 수 없는 정보 중 하나가 생성자의 인자 정보이다.
+        그래서 기본 생성자가 반드시 있어야 객체를 생성할 수 있는 것이다.
+        기본 생성자로 객체를 생성만 하면 필드 값 등은 Reflection API로 넣어줄 수 있다.
+
+- 호출 방법
+     // 방법 1
+     Class<User> clazz = User.class;
+
+     // 방법2
+     User user = new User("jyuka", "wjy");
+     Class<? extends User> clazz2 = user.getClass();
+
+     // 방법3
+     Class<?> clazz3 = Class.forName("org.example.reflection.model.User");
+     assertThat(clazz == clazz2).isTrue();
+     assertThat(clazz == clazz3).isTrue();
+     assertThat(clazz3 == clazz2).isTrue();
+
+
+===============================================================================
+
+* Annotaion 구성 정보
+annotation java 파일 생성시 위에 붙이는 에노테이션의 특징 정리
+@Target({ElementType.TYPE})
+    선언한 annotation을 붙일 수 있는 위치를 지정(클래스, 필드, 생성자 등)
+
+@Retention(RetentionPolicy.RUNTIME)
+    에노테이션의 생명 주기를 지정
+    RetentionPolicy.SOURCE
+        소스코드까지만 유지 (즉, 컴파일 과정에서 어노테이션 정보는 사라짐)
+        --> lombok의 getter/setter
+    RetentionPolicy.CLASS
+        클래스파일 까지만 유지 (런타임시 유지안됨, 어노테이션 정보 사라짐)
+        --> Maven/Gradle로 다운받은 라이브러리와 같이 jar 파일에는 소스가 포함되어있지 않다는 점입니다. class 파일만 포함
+        --> class 파일만 존재하는 라이브러리 같은 경우에도 타입체커, IDE 부가기능 등을 사용할수 있으려면 CLASS 정책이 필요
+    RetentionPolicy.RUNTIME
+        런타임 시점까지 유지 (Reflection API 로 해당 어노테이션을 사용하는 위치(클래스)정보 조회 가능 )
+         --> ReflectionTest.java --> getTypesAnnotationWith 메소드 참조
+         --> 특정 애노테이션이 붙은 클래스를 찾아 Reflection API 로 활용이 가능
+         --> spring bean container 가 해당 방법을 활용하여 빈 주입
