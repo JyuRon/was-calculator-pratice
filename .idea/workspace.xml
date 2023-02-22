@@ -4,19 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ee9c8e7f-d114-4634-9006-d66b8ed7bed5" name="Changes" comment="JDBC : HikariCP의 DataSource 사용&#10;- 커넥션의 사용 주체는 WAS 스레드이므로 커넥션 개수는 WAS 스레드 수와 함께 고&#10;려해야 함&#10;- 커넥션 수 ↑ ,메모리 소모가 ↑, 동시 접속자 수가 많아지더라도 사용자 대기 시간이 ↓&#10;- 커넥션 수 ↓ ,메모리 소모가 ↓, 동시 접속자 수가 많아지더라도 사용자 대기 시간이 ↑">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/reflection/annotation/Controller.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/reflection/annotation/RequestMapping.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/reflection/annotation/Service.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/reflection/controller/HealthCheckController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/reflection/controller/HomeController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/reflection/controller/HomeService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/reflection/controller/RequestMethod.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/reflection/model/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Reflection 정리.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/org/example/reflection/ReflectionTest.java" afterDir="false" />
+    <list default="true" id="ee9c8e7f-d114-4634-9006-d66b8ed7bed5" name="Changes" comment="Reflection API : 상세 학습 내용은 main 폴더 하위 resources 폴더 참고">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/frontcontroller/FrontControllerWebServer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/frontcontroller/mvc/DispatcherServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/frontcontroller/mvc/RequestMappingHandlerMapping.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/frontcontroller/mvc/controller/Controller.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/frontcontroller/mvc/controller/HomeController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/logback.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/webapps/home.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/servlet/CalculatorHttpServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/servlet/CalculatorHttpServlet.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -105,12 +103,26 @@
       <recent name="org.example.jdbc" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="org.example.frontcontroller" />
       <recent name="org.example.reflection" />
       <recent name="org.example.servlet" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.ReflectionTest.controllerScan">
-    <configuration name="test | #3" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/test.http" index="3" requestIdentifier="#3" runType="Run single request">
+  <component name="RunManager" selected="HTTP Request.test | #1">
+    <configuration name="FrontControllerWebServer" type="Application" factoryName="Application" temporary="true">
+      <option name="MAIN_CLASS_NAME" value="org.example.frontcontroller.FrontControllerWebServer" />
+      <module name="was-calculator-pratice.main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.example.frontcontroller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="test | #1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/test.http" requestIdentifier="#1" runType="Run single request">
       <method v="2" />
     </configuration>
     <configuration name="ReflectionTest.controllerScan" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
@@ -161,29 +173,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UserDaoTest.createTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="was-calculator-pratice.test" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="org.example.jdbc.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="org.example.jdbc" />
-      <option name="MAIN_CLASS_NAME" value="org.example.jdbc.UserDaoTest" />
-      <option name="METHOD_NAME" value="createTest" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.FrontControllerWebServer" />
+        <item itemvalue="HTTP Request.test | #1" />
         <item itemvalue="JUnit.ReflectionTest.controllerScan" />
         <item itemvalue="JUnit.ReflectionTest.load" />
         <item itemvalue="JUnit.ReflectionTest.showClass" />
-        <item itemvalue="JUnit.UserDaoTest.createTest" />
-        <item itemvalue="HTTP Request.test | #3" />
       </list>
     </recent_temporary>
   </component>
@@ -209,7 +205,7 @@
       <workItem from="1676800554848" duration="5614000" />
       <workItem from="1676894591568" duration="132000" />
       <workItem from="1676894752110" duration="2311000" />
-      <workItem from="1676901711374" duration="5054000" />
+      <workItem from="1676901711374" duration="10133000" />
     </task>
     <task id="LOCAL-00002" summary="Servlet Container 개념 학습&#10;- ServletContainer는 singletone으로 구성되었으며 singletone의 경우 상태를 유지(int count)를 유지해서는 안됨 -&gt; thread safe 하지 않음&#10;- 서블릿 컨테이너는 웹 서버와 소켓을 만들고 통신하는 과정을 대신 처리해준다. 개발&#10;  자는 비즈니스 로직에만 집중하면 된다.&#10;- Spring의 bean 또한 싱글톤으로 참고">
       <created>1676625669436</created>
@@ -246,7 +242,14 @@
       <option name="project" value="LOCAL" />
       <updated>1676806167338</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Reflection API : 상세 학습 내용은 main 폴더 하위 resources 폴더 참고">
+      <created>1676989174218</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1676989174218</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -270,6 +273,7 @@
     <MESSAGE value="Servlet, GenericServlet, HttpServlet 실습" />
     <MESSAGE value="URL 인코딩 (= 퍼센트 인코딩)&#10;• URL로 사용할 수 없는 문자(예약어, Non-ASCII 문자(한글) 등)를 사용할 수 있도록&#10;인코딩하는 것&#10;• 인코딩 된 문자는 triplet(세 개가 한 세트)로 인코딩 되며 각각을 % 다음에 두 개의&#10;16진수로 표현함&#10;• 예약 문자&#10;• https://ko.wikipedia.org/wiki/&#10;%ED%8D%BC%EC%84%BC%ED%8A%B8_%EC%9D%B8%EC%BD%9" />
     <MESSAGE value="JDBC : HikariCP의 DataSource 사용&#10;- 커넥션의 사용 주체는 WAS 스레드이므로 커넥션 개수는 WAS 스레드 수와 함께 고&#10;려해야 함&#10;- 커넥션 수 ↑ ,메모리 소모가 ↑, 동시 접속자 수가 많아지더라도 사용자 대기 시간이 ↓&#10;- 커넥션 수 ↓ ,메모리 소모가 ↓, 동시 접속자 수가 많아지더라도 사용자 대기 시간이 ↑" />
-    <option name="LAST_COMMIT_MESSAGE" value="JDBC : HikariCP의 DataSource 사용&#10;- 커넥션의 사용 주체는 WAS 스레드이므로 커넥션 개수는 WAS 스레드 수와 함께 고&#10;려해야 함&#10;- 커넥션 수 ↑ ,메모리 소모가 ↑, 동시 접속자 수가 많아지더라도 사용자 대기 시간이 ↓&#10;- 커넥션 수 ↓ ,메모리 소모가 ↓, 동시 접속자 수가 많아지더라도 사용자 대기 시간이 ↑" />
+    <MESSAGE value="Reflection API : 상세 학습 내용은 main 폴더 하위 resources 폴더 참고" />
+    <option name="LAST_COMMIT_MESSAGE" value="Reflection API : 상세 학습 내용은 main 폴더 하위 resources 폴더 참고" />
   </component>
 </project>

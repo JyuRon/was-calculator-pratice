@@ -23,7 +23,7 @@ public class CalculatorHttpServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        log.info("service");
+        log.info("service : calculator");
         int operand1 = Integer.parseInt(request.getParameter("operand1"));
         String operator = request.getParameter("operator");
         int operand2 = Integer.parseInt(request.getParameter("operand2"));
