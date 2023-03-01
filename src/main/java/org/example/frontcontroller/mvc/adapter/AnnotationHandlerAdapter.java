@@ -1,22 +1,20 @@
-package org.example.frontcontroller.mvc;
+package org.example.frontcontroller.mvc.adapter;
 
-import org.example.frontcontroller.mvc.controller.Controller;
+import org.example.frontcontroller.mvc.mapper.AnnotationHandler;
 import org.example.frontcontroller.mvc.view.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class SimpleControllerHandlerAdapter implements HandlerAdapter{
+public class AnnotationHandlerAdapter implements HandlerAdapter {
     @Override
     public boolean supports(Object handler) {
-        return (handler instanceof Controller);
+        return handler instanceof AnnotationHandler;
     }
 
     @Override
     public ModelAndView handle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-        String viewName = ((Controller) handler).handleRequest(request, response);
+        String viewName = ((AnnotationHandler)handler).handle(request,response);
         return new ModelAndView(viewName);
     }
-
-
 }

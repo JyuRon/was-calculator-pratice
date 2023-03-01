@@ -1,4 +1,4 @@
-package org.example.frontcontroller.mvc;
+package org.example.frontcontroller.mvc.common;
 
 import java.util.Objects;
 

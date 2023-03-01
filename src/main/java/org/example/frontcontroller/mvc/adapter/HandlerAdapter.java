@@ -1,4 +1,4 @@
-package org.example.frontcontroller.mvc;
+package org.example.frontcontroller.mvc.adapter;
 
 import org.example.frontcontroller.mvc.view.ModelAndView;
 
