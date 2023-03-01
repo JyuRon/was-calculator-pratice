@@ -4,22 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ee9c8e7f-d114-4634-9006-d66b8ed7bed5" name="Changes" comment="mvc 패턴 : Handler Mapping 구현&#10;동일한 url이지만 HttpMethod가 다른 경우 구분을 위한 사용">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/frontcontroller/mvc/controller/ForwardController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/frontcontroller/mvc/filter/CharacterEncodingFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/frontcontroller/mvc/view/JspView.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/frontcontroller/mvc/view/JspViewResolver.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/frontcontroller/mvc/view/RedirectView.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/frontcontroller/mvc/view/View.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/frontcontroller/mvc/view/ViewResolver.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/mvc흐름도.png" afterDir="false" />
+    <list default="true" id="ee9c8e7f-d114-4634-9006-d66b8ed7bed5" name="Changes" comment="mvc 패턴 : ViewResolver, View&#10;redirect, forward 발생시 이를 구분해줄 장치가 필요하며 이를 구현함">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/frontcontroller/mvc/HandlerAdapter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/frontcontroller/mvc/SimpleControllerHandlerAdapter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/frontcontroller/mvc/view/ModelAndView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/frontcontroller/mvc/DispatcherServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/frontcontroller/mvc/DispatcherServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/frontcontroller/mvc/RequestMappingHandlerMapping.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/frontcontroller/mvc/RequestMappingHandlerMapping.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/frontcontroller/mvc/controller/HomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/frontcontroller/mvc/controller/HomeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/frontcontroller/mvc/controller/UserListController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/frontcontroller/mvc/controller/UserListController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/frontcontroller/mvc/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/frontcontroller/mvc/repository/UserRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test.http" beforeDir="false" afterPath="$PROJECT_DIR$/test.http" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,6 +83,7 @@
 }</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
+      <recent name="org.example.frontcontroller.mvc.view" />
       <recent name="org.example.frontcontroller.mvc" />
       <recent name="org.example.frontcontroller.mvc.controller" />
       <recent name="org.example.jdbc" />
@@ -206,7 +197,8 @@
       <workItem from="1677542606657" duration="2000" />
       <workItem from="1677544717836" duration="13494000" />
       <workItem from="1677654942941" duration="1774000" />
-      <workItem from="1677656729793" duration="3855000" />
+      <workItem from="1677656729793" duration="5603000" />
+      <workItem from="1677664414835" duration="401000" />
     </task>
     <task id="LOCAL-00002" summary="Servlet Container 개념 학습&#10;- ServletContainer는 singletone으로 구성되었으며 singletone의 경우 상태를 유지(int count)를 유지해서는 안됨 -&gt; thread safe 하지 않음&#10;- 서블릿 컨테이너는 웹 서버와 소켓을 만들고 통신하는 과정을 대신 처리해준다. 개발&#10;  자는 비즈니스 로직에만 집중하면 된다.&#10;- Spring의 bean 또한 싱글톤으로 참고">
       <created>1676625669436</created>
@@ -264,7 +256,14 @@
       <option name="project" value="LOCAL" />
       <updated>1677656947742</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="mvc 패턴 : ViewResolver, View&#10;redirect, forward 발생시 이를 구분해줄 장치가 필요하며 이를 구현함">
+      <created>1677662269454</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1677662269454</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -291,6 +290,7 @@
     <MESSAGE value="Reflection API : 상세 학습 내용은 main 폴더 하위 resources 폴더 참고" />
     <MESSAGE value="FrontController : Spring MVC(Dispatcher Servlet) 구현" />
     <MESSAGE value="mvc 패턴 : Handler Mapping 구현&#10;동일한 url이지만 HttpMethod가 다른 경우 구분을 위한 사용" />
-    <option name="LAST_COMMIT_MESSAGE" value="mvc 패턴 : Handler Mapping 구현&#10;동일한 url이지만 HttpMethod가 다른 경우 구분을 위한 사용" />
+    <MESSAGE value="mvc 패턴 : ViewResolver, View&#10;redirect, forward 발생시 이를 구분해줄 장치가 필요하며 이를 구현함" />
+    <option name="LAST_COMMIT_MESSAGE" value="mvc 패턴 : ViewResolver, View&#10;redirect, forward 발생시 이를 구분해줄 장치가 필요하며 이를 구현함" />
   </component>
 </project>
