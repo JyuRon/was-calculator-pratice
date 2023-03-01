@@ -1,11 +1,14 @@
 package org.example.frontcontroller.mvc.controller;
 
+import org.example.frontcontroller.mvc.repository.UserRepository;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 public class UserListController implements Controller{
     @Override
     public String handleRequest(HttpServletRequest request, HttpServletResponse response) throws Exception {
-        return "/user/list.jsp";
+        request.setAttribute("users", UserRepository.findAll());
+        return "/user/list";
     }
 }

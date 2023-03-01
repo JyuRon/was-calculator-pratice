@@ -3,4 +3,4 @@ GET http://localhost:8080/calculate?operand1=11&operator=*&operand2=6
 ### URL 인코딩 실패 예제
 GET http://localhost:8080/calculate?operand1=11&operator=+&operand2=6
 ### URL 인코딩 성공 예제
-GET http://localhost:8080/c₩alculate?operand1=11&operator=%2b&operand2=6
+GET http://localhost:8080/calculate?operand1=11&operator=%2b&operand2=6
